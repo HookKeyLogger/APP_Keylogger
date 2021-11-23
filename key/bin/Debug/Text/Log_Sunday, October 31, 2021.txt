@@ -1,0 +1,51 @@
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 31-10-2021 09::23::25 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+
+
+
+NameProcess: explorer
+MainWindownTitle: 
+TimeExcute: 31-10-2021 06::45::56 PM
+Path: C:\Windows\Explorer.EXE
+
+
+
+NameProcess: chrome
+MainWindownTitle: Google Chrome
+TimeExcute: 31-10-2021 09::23::27 PM
+Path: C:\Program Files\Google\Chrome\Application\chrome.exe
+
+
+
+NameProcess: chrome
+MainWindownTitle: New Tab - Google Chrome
+TimeExcute: 31-10-2021 09::23::27 PM
+Path: C:\Program Files\Google\Chrome\Application\chrome.exe
+
+Google Chrome 31-10-2021 09::23::32 PM messenger.com
+
+
+NameProcess: chrome
+MainWindownTitle: 
+TimeExcute: 31-10-2021 09::23::27 PM
+Path: C:\Program Files\Google\Chrome\Application\chrome.exe
+
+Google Chrome 31-10-2021 09::23::33 PM messenger.com/t/100007644190833/
+
+
+NameProcess: chrome
+MainWindownTitle: Messenger - Google Chrome
+TimeExcute: 31-10-2021 09::23::27 PM
+Path: C:\Program Files\Google\Chrome\Application\chrome.exe
+
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 31-10-2021 09::23::25 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+
