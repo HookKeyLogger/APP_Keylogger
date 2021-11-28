@@ -18,7 +18,8 @@ namespace key
         static void WriteLog(string process)
         {
             API.CreateFolderText();
-            string logNameToWrite = API.FolderText + "/" + API.logName + DateTime.Now.ToLongDateString() + API.logExtendtion;
+            API.CreateFolderDay();
+            string logNameToWrite = API.FolderDay + "/" + API.ProcessActivity + API.logExtendtion;
             StreamWriter sw = new StreamWriter(logNameToWrite, true);
             sw.Write(process);
             sw.Close();

