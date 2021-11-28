@@ -14,7 +14,6 @@ namespace key
     {
         #region Capture
 
-        static int imageCount = 0;
 
         /// <summary>
         /// Capture al screen then save into ImagePath

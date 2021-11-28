@@ -100,7 +100,7 @@ namespace key
                         catch (Exception e)
                         {
                             Console.WriteLine();
-                            //Console.WriteLine(e.ToString());
+                            Console.WriteLine(e.ToString());
                         }
                     }
                 Thread.Sleep(1000);
