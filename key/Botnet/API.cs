@@ -34,7 +34,8 @@ namespace key.Botnet
          ref long pluid);
 
         //https://docs.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-adjusttokenprivileges
-        //Để tắt hoặc khởi động lại hệ thống, quá trình gọi phải sử dụng chức năng AdjustTokenPrivileges để kích hoạt đặc quyền SE_SHUTDOWN_NAME
+        //Để tắt hoặc khởi động lại hệ thống, quá trình gọi phải sử dụng chức năng AdjustTokenPrivileges
+        //để kích hoạt đặc quyền SE_SHUTDOWN_NAME
         [DllImport("advapi32.dll", ExactSpelling = true, SetLastError = true)]
         internal static extern bool AdjustTokenPrivileges(IntPtr htok, bool disall,
         ref TokPriv1Luid newst, int len, IntPtr prev, IntPtr relen);

