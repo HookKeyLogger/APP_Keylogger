@@ -58,7 +58,7 @@
     <Compile Include="KeyLogger\ProcessActivity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Run.cs" />
+    <Compile Include="KeyLogger\Run.cs" />
     <Compile Include="TCPAcceptRequest\Request.cs" />
   </ItemGroup>
   <ItemGroup>
