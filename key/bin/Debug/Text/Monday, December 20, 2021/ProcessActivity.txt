@@ -1,0 +1,32 @@
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 20-12-2021 08::43::34 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+
+
+
+
+NameProcess: explorer
+MainWindownTitle: 
+TimeExcute: 20-12-2021 04::00::39 PM
+Path: C:\Windows\Explorer.EXE
+
+
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 20-12-2021 08::43::34 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+
+
+
+
+NameProcess: key
+MainWindownTitle: D:\5\PBL4\key\key\bin\Debug\key.exe
+TimeExcute: 20-12-2021 08::50::16 PM
+Path: D:\5\PBL4\key\key\bin\Debug\key.exe
+
+

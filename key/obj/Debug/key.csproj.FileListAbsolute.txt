@@ -6,3 +6,11 @@ D:\5\PBL4\key\key\obj\Debug\key.csproj.CoreCompileInputs.cache
 D:\5\PBL4\key\key\obj\Debug\key.exe
 D:\5\PBL4\key\key\obj\Debug\key.pdb
 D:\5\PBL4\key\key\obj\Debug\key.csproj.AssemblyReference.cache
+Z:\PBL4\key\key\bin\Debug\key.exe.config
+Z:\PBL4\key\key\bin\Debug\key.exe
+Z:\PBL4\key\key\bin\Debug\key.pdb
+Z:\PBL4\key\key\obj\Debug\key.csproj.AssemblyReference.cache
+Z:\PBL4\key\key\obj\Debug\key.csproj.SuggestedBindingRedirects.cache
+Z:\PBL4\key\key\obj\Debug\key.csproj.CoreCompileInputs.cache
+Z:\PBL4\key\key\obj\Debug\key.exe
+Z:\PBL4\key\key\obj\Debug\key.pdb

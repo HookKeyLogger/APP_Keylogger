@@ -60,6 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KeyLogger\Run.cs" />
     <Compile Include="TCPAcceptRequest\Request.cs" />
+    <Compile Include="TCPAcceptRequest\RunServer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

